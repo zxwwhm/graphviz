@@ -1,0 +1,5 @@
+X Y
+X M
+M Y
+C X
+C M
