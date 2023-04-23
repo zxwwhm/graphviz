@@ -11,14 +11,17 @@ from utils import ioutil
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--template", type=str, default='./template.txt')
+parser.add_argument("--variable",type=str,default='')
 args = parser.parse_args()
 
 template_file = args.template
+variable=
 
 def build_graph():
     G2 = nx.DiGraph() 
     # edge_list = [('X', 'Y'), ('X', 'M'), ('M' 'Y'), ('C', 'X'), ('C', 'M')]
     # pos = {'X':(0,0), 'Y':(2,0), 'M':(1, 1), 'C':(1,2)}  # 具体制定位置
+    if 
     edge_list = ioutil.read_txt(template_file, sep=' ')  
     G2.add_edges_from(edge_list)
 
