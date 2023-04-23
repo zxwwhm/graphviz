@@ -5,8 +5,9 @@ if pro_root not in sys.path:
     sys.path.insert(0, pro_root)
 
 import matplotlib.pyplot as plt 
-# plt.rcParams["font.sans-serif"]=["SimHei"] #设置字体
-# plt.rcParams["axes.unicode_minus"]=False   #该语句解决图像中的“-”负号的乱码问题 
+import matplotlib.font_manager as font_manager
+font_manager.fontManager.addfont("font/SimHei.ttf")  # 解决中文乱码问题
+plt.rcParams['font.sans-serif'] = 'SimHei'
 import networkx as nx 
 import argparse
 from utils import ioutil
@@ -57,7 +58,6 @@ def gen_pos(G, nodes, edges):
     max_layer_node_num += 1
     
     # 设置每一层的位置
-    bottom_nodes
     pos[start] = (0, 0)
     pos[end] = (max_layer_node_num, 0)
 
@@ -144,6 +144,6 @@ if __name__ == '__main__':
 
     print("valid edges:", valid_edges)
 
-    # nodes = {'X': 'meaning1', 'Y': 'meaning2', 'C': 'meaning3', 'M': 'meaning4'}
+    # nodes = {'X': '节点X', 'Y': 'meaning2', 'C': 'meaning3', 'M': 'meaning4'}
     # valid_edges = [('X', 'Y'), ('X', 'M'), ('M', 'Y'),('C', 'X'), ('C', 'M')]
     build_graph(nodes, valid_edges)
