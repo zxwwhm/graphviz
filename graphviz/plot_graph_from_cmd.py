@@ -135,8 +135,15 @@ if __name__ == '__main__':
         var1, var2 = vars[:2]
         edges.append((var1, var2))
 
-    print("edges:", edges)
+    # 输入边中包含无效节点，进行过滤
+    valid_edges = []
+    for edge in edges:
+        v1, v2 = edge[:2]
+        if v1 in nodes and v2 in nodes:
+            valid_edges.append((v1, v2))
+
+    print("valid edges:", valid_edges)
 
     # nodes = {'X': 'meaning1', 'Y': 'meaning2', 'C': 'meaning3', 'M': 'meaning4'}
-    # edges = [('X', 'Y'), ('X', 'M'), ('M', 'Y'),('C', 'X'), ('C', 'M')]
-    build_graph(nodes, edges)
+    # valid_edges = [('X', 'Y'), ('X', 'M'), ('M', 'Y'),('C', 'X'), ('C', 'M')]
+    build_graph(nodes, valid_edges)
